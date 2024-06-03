@@ -90,7 +90,7 @@
     position: absolute;
     background: var(--primary-icon);
     right: 5px;
-    top: .6rem;
+    top: -0.2rem;
     width: .4rem;
   }
   .pulse-css::after,
@@ -104,7 +104,7 @@
     right: 0;
     bottom: 0;
     left: -.2rem;
-    background-color: var(--primary);
+    background-color: var(--primary-action);
     margin: auto;
     -webkit-transform: scale(0.3);
     transform: scale(0.3);

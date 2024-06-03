@@ -9,6 +9,8 @@ import moon from './moon-02.svg';
 import bell from './notification-02.svg';
 import chat from './comment-01.svg';
 import settings from './setings.svg';
+import mailletter from './mail-01.svg';
+import logout from './login-02.svg';
 
 export {
   home,
@@ -22,4 +24,6 @@ export {
   bell,
   chat,
   settings,
+  mailletter,
+  logout,
 };

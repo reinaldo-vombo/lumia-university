@@ -1,7 +1,7 @@
 'use client'
 import { AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from './ui/alert-dialog'
 
-const AlertDialog = () => {
+const AlertMessage = () => {
    return (
       <AlertDialog>
          <AlertDialogTrigger>Open</AlertDialogTrigger>
@@ -23,4 +23,4 @@ const AlertDialog = () => {
    )
 }
 
-export default AlertDialog
+export default AlertMessage

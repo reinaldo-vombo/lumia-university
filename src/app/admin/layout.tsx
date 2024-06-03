@@ -8,15 +8,13 @@ export default function AdminLayout({
 }>) {
    return (
       <>
-         <body className="flex">
+         <Navbar />
+         <main className="h-screen flex">
             <Left />
-            <div className="w-full">
-               <Navbar />
-               <main>
-                  {children}
-               </main>
+            <div className="bg-secondary-action rounded-lg w-full">
+               {children}
             </div>
-         </body>
+         </main>
       </>
    );
 }
