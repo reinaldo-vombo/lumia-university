@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const NavItems = () => {
    return (
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 ml-auto">
          <button type="button" aria-label="sun icon">
             <Image src={sun} className="size-[1.3rem]" width={20} height={20} alt="sun icon" />
          </button>

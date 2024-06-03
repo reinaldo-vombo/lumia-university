@@ -1,5 +1,6 @@
 import Navbar from "@/src/components/Navbar";
 import Left from "@/src/components/sidear/Left";
+import { PageProvider } from "@/src/providers/AppProvider";
 
 export default function AdminLayout({
    children,
@@ -7,7 +8,7 @@ export default function AdminLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <>
+      <PageProvider>
          <Navbar />
          <main className="h-screen flex">
             <Left />
@@ -15,6 +16,6 @@ export default function AdminLayout({
                {children}
             </div>
          </main>
-      </>
+      </PageProvider>
    );
 }
