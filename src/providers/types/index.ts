@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
-export type TProvider = {};
+export type TProvider = {
+  toggleSidebar: boolean;
+};
 export type TPageProvider = {
   children: ReactNode;
-  toggleSidebar: boolean
-  handleSidebar: () => void
 };

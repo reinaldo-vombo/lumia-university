@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {
    Sheet,
    SheetContent,
@@ -6,17 +7,37 @@ import {
    SheetTitle,
    SheetTrigger,
 } from "../../components/ui/sheet"
+import { chat } from "@/public/icons"
+import { Button } from "../ui/button"
+import { useState } from "react"
+import UserListChat from "./UserListChat"
 
-function Right() {
+const SheetSidebar = () => {
+   const [selectedTab, setSeletedTab] = useState('chat')
+
+   const handleTabSelect = (tab: string) => {
+      setSeletedTab(tab)
+   }
    return (
       <Sheet>
-         <SheetTrigger>Open</SheetTrigger>
-         <SheetContent>
+         <SheetTrigger>
+            <Image src={chat} className="size-[1.3rem]" width={20} height={20} alt="chat icon" />
+         </SheetTrigger>
+         <SheetContent className="bg-background-main">
             <SheetHeader>
-               <SheetTitle>Are you absolutely sure?</SheetTitle>
+               <SheetTitle className="flex items-center relative py-4">
+                  <Button className="flex-1 bg-transparent text-primary-purple" onClick={() => handleTabSelect('chat')}>Chat</Button>
+                  <Button className="flex-1 bg-transparent text-primary-purple" onClick={() => handleTabSelect('alert')}>Alertas</Button>
+                  <Button className="flex-1 bg-transparent text-primary-purple" onClick={() => handleTabSelect('notes')}>Noata</Button>
+               </SheetTitle>
                <SheetDescription>
-                  This action cannot be undone. This will permanently delete your account
-                  and remove your data from our servers.
+                  <div className="bg-[#010610] p-3 text-center">
+                     <h2 className="text-lg">Chat</h2>
+                     <p className="text-xs">Mostra todos</p>
+                  </div>
+                  {selectedTab === 'chat' ? (
+                     <UserListChat />
+                  ) : selectedTab === 'alert' ? (<p>alert</p>) : selectedTab === 'notes' ? (<p>otes</p>) : null}
                </SheetDescription>
             </SheetHeader>
          </SheetContent>
@@ -25,4 +46,4 @@ function Right() {
    )
 }
 
-export default Right
+export default SheetSidebar

@@ -1,8 +1,13 @@
-@tailwind base;
+  @tailwind base;
   @tailwind components;
   @tailwind utilities;
 
+  /* [data-theme='dark'] {
+    --background: black;
+    --foreground: white;
+  } */
   @layer base {
+    
     :root {
       --background: 0 0% 100%;
       --foreground: 222.2 84% 4.9%;
@@ -47,6 +52,7 @@
       --background: 222.2 84% 4.9%;
       --foreground: 210 40% 98%;
       --background-main: #17171E;
+      --primary-text : #dcebfa;
 
       --card: 222.2 84% 4.9%;
       --card-foreground: 210 40% 98%;
@@ -80,8 +86,35 @@
       @apply border-border;
     }
     body {
-      @apply bg-background text-foreground;
+      @apply bg-background-main text-primary-text;
     }
+  }
+  .small .active-menu {
+    border-radius: 11px;
+  }
+  .small .active-menu::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    width: 28%;
+    top: inherit;
+    height: 2px;
+    background: var(--primary-icon);
+  }
+  .active-menu {
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+  }
+  .active-menu::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--primary-icon);
   }
   .pulse-css{
     height: 1rem;
@@ -113,6 +146,22 @@
     -webkit-animation: pulse-me 3s linear infinite;
     animation: pulse-me 3s linear infinite;
   }
+  .animate-bounce-2{
+    animation: bounce-2 2s infinite alternate;
+  }
+  .card-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: .5rem;
+}
+.bar::before{
+  position: absolute;
+  content: '';
+  width: 70%;
+  height: 100%;
+  background-color: #6a73fa;
+}
 
   @keyframes pulse-me {
     0% {
@@ -131,4 +180,12 @@
       transform: scale(3);
       opacity: 0;
     }
+}
+@keyframes bonce {
+  0% {
+    transform: translateY(0);
+}
+100% {
+    transform: translateY(-8px);
+}
 }

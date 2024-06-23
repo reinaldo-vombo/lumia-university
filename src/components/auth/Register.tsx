@@ -9,9 +9,6 @@ const Register = () => {
    return (
       <div className='shadow-md shadow-secondary-action'>
          <div className="grid grid-cols-12">
-            <div className="col-span-6 place-content-center bg-primary-action p-5 rounded-l-lg">
-               <Login isStudent={isStudent} setIsStudent={setIsStudent} />
-            </div>
             <div className="col-span-6 relative h-full overflow-hidden">
                <motion.div
                   initial={false}
@@ -30,6 +27,10 @@ const Register = () => {
                   className='bg-slate-50 absolute inset-0 rounded-r-lg'
                   style={{ background: `url(/wp.png)`, backgroundPosition: 'center', backgroundSize: 'cover' }} />
             </div>
+            <div className="col-span-6 place-content-center bg-primary-action p-5 rounded-l-lg">
+               <Login isStudent={isStudent} setIsStudent={setIsStudent} />
+            </div>
+
          </div>
       </div>
    )

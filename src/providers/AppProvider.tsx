@@ -1,36 +1,34 @@
 'use client'
+import { createContext, useContext, useEffect, useState } from "react";
+import { TPageProvider, TProvider } from "./types";
 
-import { createContext, useContext, useState } from "react"
-import { TPageProvider, TProvider } from "./types"
 
-export const MainContext = createContext<TProvider | undefined>(undefined)
+export const MainContext = createContext<TProvider | undefined>(undefined);
 
 export const useProvider = (): TProvider => {
-   const context = useContext(MainContext)
+   const context = useContext(MainContext);
 
    if (context === undefined) {
-      throw new Error('useAuth must be used within an AuthProvider')
+      throw new Error("useProvider must be used within a PageProvider");
    }
-   return context
-
-}
+   return context;
+};
 
 export function PageProvider({ children }: TPageProvider) {
-   //states
-   const [toggleSidebar, setToggleSidebar] = useState(false)
+   const [toggleSidebar, setToggleSidebar] = useState(false);
 
-   //fuctions
    const handleSidebar = () => {
-      setToggleSidebar(!toggleSidebar)
-   }
+      setToggleSidebar((prevState) => !prevState);
+   };
 
    const value = {
       handleSidebar,
-      toggleSidebar
-   }
+      toggleSidebar,
+   };
+
    return (
       <MainContext.Provider value={value}>
          {children}
       </MainContext.Provider>
-   )
+   );
 }

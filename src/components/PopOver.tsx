@@ -6,10 +6,8 @@ import Image from 'next/image'
 const PopOver = ({ children, element, isText, className }: TPopover) => {
    return (
       <Popover>
-         <PopoverTrigger>
-            {isText ? element : (
-               <Image src={element} className='rounded-full' width={40} height={40} alt='user avatar' />
-            )}
+         <PopoverTrigger className='relative'>
+            {element}
          </PopoverTrigger>
          <PopoverContent className={`${className ? className : ''}`}>{children}</PopoverContent>
       </Popover>

@@ -2,9 +2,9 @@
 
 const Sidebar = () => {
    return (
-      <div>
+      <aside>
 
-      </div>
+      </aside>
    )
 }
 
