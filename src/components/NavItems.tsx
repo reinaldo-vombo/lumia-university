@@ -1,18 +1,21 @@
 'use client'
-import { bell, chat, settings, sun, } from "@/public/icons"
+import { bell, chat, moon, settings, sun, } from "@/public/icons"
 import Image from "next/image"
 import PopOver from "./PopOver"
 import UserContent from "./dashoard/pop-over-content/UserContent"
 import UserNotification from "./dashoard/pop-over-content/UserNotification"
-import { useProvider } from "../providers/AppProvider"
 import SheetSidebar from "./sidear/Right"
+import { useTheme } from "next-themes"
 
 const NavItems = () => {
-   const { toggleTheme } = useProvider();
+   const { theme, setTheme } = useTheme()
+   const toggleTheme = () => {
+      setTheme(theme === 'light' ? 'dark' : 'light')
+   }
    return (
       <div className="flex items-center gap-4 ml-auto ">
          <button type="button" aria-label="sun icon" onClick={toggleTheme}>
-            <Image src={sun} className="size-[1.3rem]" width={20} height={20} alt="sun icon" />
+            <Image src={theme === 'dark' ? sun : moon} className="size-[1.3rem]" width={20} height={20} alt="sun icon" />
          </button>
          <SheetSidebar />
          <PopOver element={

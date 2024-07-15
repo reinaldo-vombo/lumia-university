@@ -1,6 +1,4 @@
-import { buildig, calendar, home, user, users } from "@/public/icons";
-import React from "react";
-import { HomeIcon } from "./svgIcons";
+import { buildig } from "@/public/icons";
 
 export const content = {
   menus: [
@@ -15,7 +13,7 @@ export const content = {
       id: 2,
       name: "Event Managemante",
       icon: "",
-      route: "/event_managemante",
+      route: "/dashboard/admin/event-management",
       subItems: [],
     },
     {
@@ -52,6 +50,70 @@ export const content = {
       icon: buildig,
       route: "#",
       subItems: ["All Teachers", "Add Teachers"],
+    },
+  ],
+  cmsMenus: [
+    {
+      id: 1,
+      name: "Blogs",
+      icon: "",
+      route: "/dashboard/admin/blogs",
+    },
+    {
+      id: 2,
+      name: "Artigos",
+      icon: "",
+      route: "/dashboard/admin/articles",
+    },
+  ],
+  finaces: [
+    {
+      id: 1,
+      name: "Statisticas",
+      icon: "",
+      route: "/dashboard/admin/statics",
+    },
+    {
+      id: 2,
+      name: "To Do List",
+      icon: "",
+      route: "/dashboard/admin/tasks",
+    },
+    {
+      id: 2,
+      name: "Recibos",
+      icon: "",
+      route: "/dashboard/admin/recipet",
+    },
+  ],
+  status: [
+    {
+      id: 1,
+      title: "Total de alunos",
+      data: 1.45,
+      percemtage: 100,
+      icon: "",
+    },
+    {
+      id: 2,
+      title: "Novos alunos",
+      data: 1.45,
+      percemtage: 3400,
+      icon: "",
+    },
+    {
+      id: 3,
+      title: "Cursos",
+      data: 1.45,
+      percemtage: 20,
+      icon: "",
+    },
+    {
+      id: 3,
+      title: "Free colection",
+      data: 1.45,
+      percemtage: 90,
+      icon: "",
     },
   ],
   notification: [

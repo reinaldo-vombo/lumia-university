@@ -2,7 +2,6 @@
 import { Moon02Icon, Sun03Icon } from "@/src/constant/svgIcons"
 import { useTheme } from "next-themes";
 import Image from "next/image"
-import { Input } from "../ui/input";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import StudentForm from "./forms/StudentForm";

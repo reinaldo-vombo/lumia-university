@@ -13,7 +13,9 @@ export default function AdminLayout({
             <Left />
             <div className="bg-secondary-action rounded-lg w-full">
                <Navbar />
-               {children}
+               <div className="container">
+                  {children}
+               </div>
             </div>
          </div>
       </PageProvider>
