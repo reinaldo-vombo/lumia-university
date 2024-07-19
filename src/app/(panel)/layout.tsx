@@ -9,7 +9,7 @@ export default function AdminLayout({
 }>) {
    return (
       <PageProvider>
-         <div className="h-screen flex">
+         <div className="flex">
             <Left />
             <div className="bg-secondary-action rounded-lg w-full">
                <Navbar />

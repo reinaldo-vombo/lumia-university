@@ -1,19 +1,55 @@
 'use client'
 
-import React, { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+
+import { motion } from 'framer-motion'
 import { useProvider } from '@/src/providers/AppProvider'
 import { content } from '@/src/constant/site-content'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { CalendarIcon, HomeIcon, } from '@/src/constant/svgIcons'
-import DropdwonItems from '../DropdwonItems'
+import { BookShellIcon, Buildingcon, CalendarIcon, HomeIcon, StaffIcon, StudentsIcon, UsersIcon, } from '@/src/constant/svgIcons'
 
 const Left = () => {
    const path = usePathname()
 
    const { toggleSidebar } = useProvider()
+   const svgs = [
+      <HomeIcon
+         className={path === '/dashboard/admin' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+      <CalendarIcon
+         className={path === '/dashboard/admin/event-management' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+      <UsersIcon
+         className={path === '/dashboard/admin/teachers' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+      <StudentsIcon
+         className={path === '/dashboard/admin/studentes' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+      <BookShellIcon
+         className={path === '/dashboard/admin/curses' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+      <StaffIcon
+         className={path === '/dashboard/admin/members' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+      <Buildingcon
+         className={path === '/dashboard/admin/departmentes' ? 'text-primary-action' : " dark:text-primary-text"}
+         width={30}
+         height={30}
+      />,
+   ]
 
    return (
       <motion.div
@@ -30,35 +66,15 @@ const Left = () => {
             <div>
                <ul className={`${toggleSidebar ? 'small gap-2 place-content-center' : ''} grid`}>
                   {content.menus.map((item, index) => (
-                     <li
-                        className={`${path === item.route ? 'text-primary-purple dark:bg-secondary-action active-menu bg-slate-200' : ''} ${toggleSidebar ? 'pl-4' : 'px-4'} py-2 relative`}
-                        key={item.id}
+                     <li className={`${path === item.route ? 'text-primary-purple dark:bg-secondary-action active-menu bg-slate-200' : ''} ${toggleSidebar ? 'pl-4' : 'px-4'} py-2 relative`}
+                        key={index}
                      >
-                        {index === 0 || index === 1 ? (
-                           <Link href={`${item.route}`} className="flex items-center gap-2 text-xs">
-                              {index === 0 ?
-                                 <HomeIcon
-                                    className={path === '/dashboard/admin' ? 'text-primary-action' : " dark:text-primary-text"}
-                                    width={toggleSidebar ? 30 : 20}
-                                    height={toggleSidebar ? 30 : 20}
-                                 /> :
-                                 <CalendarIcon
-                                    className={path === '/dashboard/admin/event-management' ? 'text-primary-action' : " dark:text-primary-text"}
-                                    width={toggleSidebar ? 30 : 20}
-                                    height={toggleSidebar ? 30 : 20}
-                                 />}
-                              {!toggleSidebar && (
-                                 <span>{item.name}</span>
-                              )}
-                           </Link>
-                        ) : (
-                           <DropdwonItems
-                              item={item}
-                              index={index}
-                              path={path}
-                              toggleSidebar={toggleSidebar}
-                           />
-                        )}
+                        <Link href={`${item.route}`} className="flex items-center gap-2 text-xs">
+                           {svgs[index]}
+                           {!toggleSidebar && (
+                              <span>{item.name}</span>
+                           )}
+                        </Link>
                      </li>
                   ))}
                </ul>
